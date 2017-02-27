@@ -38,4 +38,11 @@ describe RestaurantBill do
     @my_bill.sum_and_add_tax(0.096).must_equal 15.34
   end
 
+  it "allows adding tip" do
+    @my_bill.order_item("pancake", 3)
+    @my_bill.order_item("pancake", 4)
+    @my_bill.sum_and_add_tax(0.096)
+    @my_bill.add_tip(2.00).must_equal 9.67
+  end
+
 end
